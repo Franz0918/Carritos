@@ -6,7 +6,7 @@ public class CarroDto {
     private int numero_ruedas;
     private String tipo_transmision;
 
-    //CONSTRUCTOR
+    //.CONSTRUCTOR
     public CarroDto(){
         //CONSTRUCTOR VACIO PARA QUE LO USE SPRING O HIBERNATE COMO OBJETO CASCARON PARA PODER RELLENAR CON LOS DATOS QUE INGRESEN DE BRINO
     }
