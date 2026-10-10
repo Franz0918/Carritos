@@ -1,7 +1,7 @@
 package com.candens.carros2.Transactions;
 
 import com.candens.carros2.Dto.CarroDto;
-import com.candens.carros2.Library.Operaciones;
+import com.candens.carros2.Library.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +11,7 @@ public class Transaction {
     //POST...
     @Service("RegistrarCarroEnvio")
     public static class RegistrarCarroEnvio {
-        private final Operaciones.RegistrarCarroTransaction registrarTransaction = new Operaciones.RegistrarCarroTransaction();
+        private final Registrar registrarTransaction = new Registrar();
         public CarroDto ejecutarPost(CarroDto dto) {
              return registrarTransaction.ejecutar(dto);
 
@@ -23,7 +23,7 @@ public class Transaction {
     //GETs
     @Service("BuscarCarroEnvio")
     public static class BuscarCarroEnvio {
-        private final Operaciones.BuscarCarroTransaction buscarTransaction = new Operaciones.BuscarCarroTransaction();
+        private final Buscar buscarTransaction = new Buscar();
         public CarroDto ejecutarGet(Long id) {
             return buscarTransaction.ejecutar(id);
 
@@ -35,7 +35,7 @@ public class Transaction {
     //LIST
     @Service("ListaCarroEnvio")
     public static class ListaCarroEnvio {
-        private final Operaciones.ListaCarrosTransaction listarTransaction = new Operaciones.ListaCarrosTransaction();
+        private final Listar listarTransaction = new Listar();
         public List<CarroDto> ejecutarList() {
             return listarTransaction.ejecutar();
 
@@ -47,7 +47,7 @@ public class Transaction {
     //PUT
     @Service("ActualizarCarroEnvio")
     public static class ActualizarCarroEnvio {
-        private final Operaciones.ActualizarCarroTransaction actualizarTransaction = new Operaciones.ActualizarCarroTransaction();
+        private final Actualizar actualizarTransaction = new Actualizar();
         public CarroDto ejecutarPut(Long id, CarroDto dto) {
             return actualizarTransaction.ejecutar(id, dto);
 
@@ -58,7 +58,7 @@ public class Transaction {
     //BORRAR
     @Service("BorrarCarroEnvio")
     public static class BorrarCarroEnvio {
-        private final Operaciones.BorrarCarroTransaction borrarTransaction = new Operaciones.BorrarCarroTransaction();
+        private final Borrar borrarTransaction = new Borrar();
         public void ejecutarDelete(Long id) {
             borrarTransaction.ejecutar(id);
 
