@@ -2,7 +2,7 @@ package com.candens.carros2;
 
 
 import com.candens.carros2.Dto.CarroDto;
-import com.candens.carros2.Transactions.Transaction;
+import com.candens.carros2.Transactions.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,14 +15,14 @@ import java.util.List;
 public class CarroController {
 
 
-    private final Transaction.RegistrarCarroEnvio registrarEnvio;
-    private final Transaction.BuscarCarroEnvio buscarEnvio;
+    private final RegistrarTransaction registrarEnvio;
+    private final BuscarTransaction buscarEnvio;
 
-    private final Transaction.ListaCarroEnvio listaEnvio;
-    private final Transaction.ActualizarCarroEnvio actualizaEnvio;
-    private final Transaction.BorrarCarroEnvio borraEnvio;
+    private final ListarTransaction listaEnvio;
+    private final ActualizarTransaction actualizaEnvio;
+    private final BorrarTransaction borraEnvio;
 
-    public CarroController(Transaction.RegistrarCarroEnvio registrarEnvio, Transaction.BuscarCarroEnvio buscarEnvio, Transaction.ListaCarroEnvio listaEnvio, Transaction.ActualizarCarroEnvio actualizaEnvio, Transaction.BorrarCarroEnvio borraEnvio) {
+    public CarroController(RegistrarTransaction registrarEnvio, BuscarTransaction buscarEnvio, ListarTransaction listaEnvio, ActualizarTransaction actualizaEnvio, BorrarTransaction borraEnvio) {
         this.registrarEnvio = registrarEnvio;
         this.buscarEnvio = buscarEnvio;
         this.listaEnvio = listaEnvio;
