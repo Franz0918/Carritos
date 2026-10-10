@@ -7,6 +7,7 @@ import java.sql.*;
 
 @Service // ESTO INDICA A SPRING Q ESTO TIENE LOGICA DE NEGOCIO
 public class Actualizar {
+
     private final String url = "jdbc:postgresql://localhost:5432/carritos";
     private final String user = "postgres";
     private final String password = "Los;petetes;2026";
