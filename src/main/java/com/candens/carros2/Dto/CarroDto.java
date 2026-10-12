@@ -1,5 +1,6 @@
 package com.candens.carros2.Dto;
 
+
 public class CarroDto {
     private Long id; // creA UN OBJETO DE TIPO NUMERICO Q TIUENE LA CAPCIDAD DE GUARDAR UN VALOR NUL, en proGRAMACION SE USA POR BUENAS PRACTICAS USAR LONG PARA ESCALABILIDAD DEBIDO A QUE USA 64BITS
     private String marca;
