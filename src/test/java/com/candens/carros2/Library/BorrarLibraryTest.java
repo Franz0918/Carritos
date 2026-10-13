@@ -2,10 +2,10 @@ package com.candens.carros2.Library;
 
 import org.junit.jupiter.api.Test;
 
-class BorrarTest {
+class BorrarLibraryTest {
     @Test
     public void deletie(){
-        Borrar x = new Borrar();
-        x.ejecutar(2L);
+        BorrarLibrary x = new BorrarLibrary();
+        x.ejecutar(2);
     }
 }

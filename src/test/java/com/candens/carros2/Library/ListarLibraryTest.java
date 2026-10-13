@@ -3,10 +3,10 @@ package com.candens.carros2.Library;
 
 import org.junit.jupiter.api.Test;
 
-class ListarTest {
+class ListarLibraryTest {
     @Test
     public void listie(){
-        Listar x = new Listar();
+        ListarLibrary x = new ListarLibrary();
         x.ejecutar();
     }
 }

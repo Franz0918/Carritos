@@ -1,22 +1,17 @@
 package com.candens.carros2.Library;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import com.candens.carros2.Library.Conexion.Conexion;
+
 import java.sql.PreparedStatement;
 
-public class Borrar {
-    private final String url = "jdbc:postgresql://localhost:5432/carritos";
-    private final String user = "postgres";
-    private final String password = "Los;petetes;2026";
-
-    public void ejecutar(Long id) {
+public class BorrarLibrary {
+    public void ejecutar(Integer id) {
         String sql = "DELETE FROM carros WHERE id = ?";
 
         // 2. Bloque try-with-resources para manejar y cerrar la conexión automáticamente
-        try (Connection conexion = DriverManager.getConnection(url, user, password);
-             PreparedStatement ps = conexion.prepareStatement(sql)) {
+        try (PreparedStatement ps = Conexion.conectar().getConnection().prepareStatement(sql)) {
 
-            ps.setLong(1, id);
+            ps.setInt(1, id);
 
             int filasDeleted = ps.executeUpdate();
 

@@ -2,10 +2,10 @@ package com.candens.carros2.Library;
 
 import org.junit.jupiter.api.Test;
 
-class BuscarTest {
+class BuscarLibraryTest {
     @Test
     public void gettie(){
-        Buscar y = new Buscar();
-        y.ejecutar(2L);
+        BuscarLibrary y = new BuscarLibrary();
+        y.ejecutar(2);
     }
 }
