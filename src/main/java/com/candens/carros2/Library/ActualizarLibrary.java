@@ -1,23 +1,20 @@
 package com.candens.carros2.Library;
 
 import com.candens.carros2.Dto.CarroDto;
+import com.candens.carros2.Library.Conexion.Conexion;
 import org.springframework.stereotype.Service;
 import java.sql.*;
 
 
 @Service // ESTO INDICA A SPRING Q ESTO TIENE LOGICA DE NEGOCIO
-public class Actualizar {
+public class ActualizarLibrary {
 
-    private final String url = "jdbc:postgresql://localhost:5432/carritos";
-    private final String user = "postgres";
-    private final String password = "Los;petetes;2026";
 
-    public CarroDto ejecutar(Long id, CarroDto dto){//ACA SE PIDE EL ARIBUTO CREADO EN EL CONTROLADOR dto TIPO CarroDto
+    public CarroDto ejecutar(Integer id, CarroDto dto){//ACA SE PIDE EL ARIBUTO CREADO EN EL CONTROLADOR dto TIPO CarroDto
         String sql = "UPDATE carros SET marca = ?, numero_ruedas = ?, tipo_transmision = ? WHERE id = ?";
 
         // aaalll Bloque try-with-resources que maneja y cierra la conexión automáticamente
-        try (Connection conexion = DriverManager.getConnection(url, user, password);
-             PreparedStatement ps = conexion.prepareStatement(sql)) {
+        try (PreparedStatement ps = Conexion.conectar().getConnection().prepareStatement(sql)) {
 
             // Pasamos los parámetros del DTO al Query de SQL
             ps.setString(1, dto.getMarca());

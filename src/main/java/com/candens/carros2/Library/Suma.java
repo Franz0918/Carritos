@@ -17,3 +17,20 @@ public class Suma {
     }
 
 }
+
+/*
+
+----------PARA WEBFLUX------------------
+
+--------LIBRERIAS A IMPORTAR---------------
+        import reactor.core.publisher.Flux;
+        import reactor.core.publisher.Mono;
+
+-------DEPENDENCIAS PARA EL POM-------
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-webflux</artifactId>
+</dependency>
+
+
+ */

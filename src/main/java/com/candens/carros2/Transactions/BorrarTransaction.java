@@ -5,9 +5,13 @@ import org.springframework.stereotype.Service;
 
 @Service("BorrarTransaction")
 public class BorrarTransaction {
-    private final Borrar borrarTransaction = new Borrar();
-    public void ejecutarDelete(Long id) {
-        borrarTransaction.ejecutar(id);
+    private final BorrarLibrary borrarLibraryTransaction; // = new Borrar();
+    public BorrarTransaction(BorrarLibrary borrarLibraryTransaction) {
+        this.borrarLibraryTransaction = borrarLibraryTransaction;
+    }
+
+    public void ejecutarDelete(Integer id) {
+        borrarLibraryTransaction.ejecutar(id);
 
     }
 }

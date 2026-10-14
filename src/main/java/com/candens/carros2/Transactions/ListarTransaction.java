@@ -8,9 +8,11 @@ import java.util.List;
 
 @Service("ListarTransaction")
 public class ListarTransaction {
-    private final Listar listarTransaction = new Listar();
+
+    private final ListarLibrary listarLibraryTransaction; // = new Listar();
+    public ListarTransaction(ListarLibrary listarLibraryTransaction) {this.listarLibraryTransaction = listarLibraryTransaction;}
     public List<CarroDto> ejecutarList() {
-        return listarTransaction.ejecutar();
+        return listarLibraryTransaction.ejecutar();
 
     }
 }

@@ -1,16 +1,15 @@
 package com.candens.carros2.Dto;
 
+
 public class CarroDto {
-    private Long id; // creA UN OBJETO DE TIPO NUMERICO Q TIUENE LA CAPCIDAD DE GUARDAR UN VALOR NUL, en proGRAMACION SE USA POR BUENAS PRACTICAS USAR LONG PARA ESCALABILIDAD DEBIDO A QUE USA 64BITS
+    private Integer id; // creA UN OBJETO DE TIPO NUMERICO Q TIUENE LA CAPCIDAD DE GUARDAR UN VALOR NUL, en proGRAMACION SE USA POR BUENAS PRACTICAS USAR LONG PARA ESCALABILIDAD DEBIDO A QUE USA 64BITS
     private String marca;
     private int numero_ruedas;
     private String tipo_transmision;
 
     //.CONSTRUCTOR
-    public CarroDto(long l){
-        //CONSTRUCTOR VACIO PARA QUE LO USE SPRING O HIBERNATE COMO OBJETO CASCARON PARA PODER RELLENAR CON LOS DATOS QUE INGRESEN DE BRINO
-    }
-    public CarroDto(Long id, String marca, int numero_ruedas, String tipo_transmision) { //PARA FABRICAR UN CARRODTO NECESITAS PADARME ID, MARCA,ETC
+
+    public CarroDto(Integer id, String marca, int numero_ruedas, String tipo_transmision) { //PARA FABRICAR UN CARRODTO NECESITAS PADARME ID, MARCA,ETC
         this.id = id;
         this.marca = marca;
         this.numero_ruedas = numero_ruedas;
@@ -18,11 +17,11 @@ public class CarroDto {
     }
 
 //GETTERS Y STTERES kkkkk
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
