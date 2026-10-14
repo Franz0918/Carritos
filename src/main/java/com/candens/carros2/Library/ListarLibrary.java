@@ -1,15 +1,13 @@
 package com.candens.carros2.Library;
 
 import com.candens.carros2.Dto.CarroDto;
+import com.candens.carros2.Library.Conexion.Conexion;
 import org.springframework.stereotype.Service;
 import java.sql.*;
 import java.util.List;
 
 @Service // ESTO INDICA A SPRING Q ESTO TIENE LOGICA DE NEGOCIO
-public class Listar {
-    private final String url = "jdbc:postgresql://localhost:5432/carritos";
-    private final String user = "postgres";
-    private final String password = "Los;petetes;2026";
+public class ListarLibrary {
 
     public List<CarroDto> ejecutar() {
         // Sentencia SQL nativa para traer todas las filas ordenadas por ID
@@ -17,14 +15,14 @@ public class Listar {
         List<CarroDto> listaCarros = new java.util.ArrayList<>();
 
         // aaalll Bloque try-with-resources que maneja y cierra la conexión automáticamente
-        try (Connection conexion = DriverManager.getConnection(url, user, password);
-             PreparedStatement ps = conexion.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+        try (PreparedStatement ps = Conexion.conectar().getConnection().prepareStatement(sql);
 
+             ResultSet rs = ps.executeQuery()) {
+//rs = mockResultSet
             while (rs.next()){
 
                 CarroDto carro = new CarroDto(
-                        rs.getLong("id"),
+                        rs.getInt("id"),
                         rs.getString("marca"),
                         rs.getInt("numero_ruedas"),
                         rs.getString("tipo_transmision")

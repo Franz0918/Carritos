@@ -40,7 +40,7 @@ public class CarroController {
 
     // GET ENDPOINT
     @GetMapping("/buscar/{id}")
-    public ResponseEntity<CarroDto>getCarro(@PathVariable Long id) { //LO QUE VENGA DEL URI QUE ESTA ENTRE {} LO TOMA
+    public ResponseEntity<CarroDto>getCarro(@PathVariable Integer id) { //LO QUE VENGA DEL URI QUE ESTA ENTRE {} LO TOMA
         return ResponseEntity.ok(buscarEnvio.ejecutarGet(id));
     }
 
@@ -52,13 +52,13 @@ public class CarroController {
 
     // PUT  ENDPOINT
     @PutMapping("/actualizar/{id}")
-    public ResponseEntity<CarroDto> putCarro(@PathVariable Long id, @RequestBody CarroDto dto) {
+    public ResponseEntity<CarroDto> putCarro(@PathVariable Integer id, @RequestBody CarroDto dto) {
         return ResponseEntity.ok(actualizaEnvio.ejecutarPut(id, dto));
     }
 
     // BORARA
     @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<Void> deleteCarro(@PathVariable Long id) { //CUERPO DE PAQUETE EN RPTA SERA VACIO
+    public ResponseEntity<Void> deleteCarro(@PathVariable Integer id) { //CUERPO DE PAQUETE EN RPTA SERA VACIO
         borraEnvio.ejecutarDelete(id);
         return ResponseEntity.noContent().build(); //NOCONTENT PORQ NO ENTREGA CONTENIDO , BUILD PARA FABRICAR EL PAQUETE POSTAL WEB DVACIO DE FORMA CORRECTA
     }

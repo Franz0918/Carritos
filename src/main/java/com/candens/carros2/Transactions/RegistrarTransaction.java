@@ -6,9 +6,10 @@ import org.springframework.stereotype.Service;
 
 @Service("RegistrarTransaction")
 public class RegistrarTransaction {
-        private final Registrar registrarTransaction = new Registrar();
+        private final RegistrarLibrary registrarLibraryTransaction; // = new Registrar();
+        public RegistrarTransaction(RegistrarLibrary registrarLibraryTransaction) {this.registrarLibraryTransaction = registrarLibraryTransaction;}
         public CarroDto ejecutarPost(CarroDto dto) {
-            return registrarTransaction.ejecutar(dto);
+            return registrarLibraryTransaction.ejecutar(dto);
 
             //CarroDto enviaPost =
             //return enviaPost;

@@ -6,9 +6,10 @@ import org.springframework.stereotype.Service;
 
 @Service("BuscarTransaction")
 public class BuscarTransaction {
-    private final Buscar buscarTransaction = new Buscar();
-    public CarroDto ejecutarGet(Long id) {
-        return buscarTransaction.ejecutar(id);
+    private final BuscarLibrary buscarLibraryTransaction; // = new Buscar();
+    public BuscarTransaction(BuscarLibrary buscarLibraryTransaction) {this.buscarLibraryTransaction = buscarLibraryTransaction;}
+    public CarroDto ejecutarGet(Integer id) {
+        return buscarLibraryTransaction.ejecutar(id);
 
     }
 }

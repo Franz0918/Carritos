@@ -6,8 +6,11 @@ import org.springframework.stereotype.Service;
 
 @Service("ActualizarTransaction")
 public class ActualizarTransaction {
-    private final Actualizar actualizarTransaction = new Actualizar();
-    public CarroDto ejecutarPut(Long id, CarroDto dto) {
-        return actualizarTransaction.ejecutar(id, dto);
+    private final ActualizarLibrary actualizarLibraryTransaction; // = new Actualizar();
+    public ActualizarTransaction(ActualizarLibrary actualizarLibraryTransaction) {
+        this.actualizarLibraryTransaction = actualizarLibraryTransaction;
+    }
+    public CarroDto ejecutarPut(Integer id, CarroDto dto) {
+        return actualizarLibraryTransaction.ejecutar(id, dto);
     }
 }
