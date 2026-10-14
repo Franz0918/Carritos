@@ -16,8 +16,9 @@ public class ListarLibrary {
 
         // aaalll Bloque try-with-resources que maneja y cierra la conexión automáticamente
         try (PreparedStatement ps = Conexion.conectar().getConnection().prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
 
+             ResultSet rs = ps.executeQuery()) {
+//rs = mockResultSet
             while (rs.next()){
 
                 CarroDto carro = new CarroDto(

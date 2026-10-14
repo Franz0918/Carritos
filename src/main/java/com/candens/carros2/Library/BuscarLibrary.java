@@ -17,7 +17,7 @@ public class BuscarLibrary {
 
             // aaalll Bloque try-with-resources que maneja y cierra la conexión automáticamente
             try (PreparedStatement ps = Conexion.conectar().getConnection().prepareStatement(sql)) {
-
+                // rs = mockresultset
                 ps.setLong(1, id);
 
                 try (ResultSet rs = ps.executeQuery()) {

@@ -9,7 +9,7 @@ import org.mockito.*;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.*;
 
-public class BorrarLibraryTransactionTest {
+public class BorrarTransactionTest {
 
     @Mock
     private BorrarLibrary borrarLibraryTransaction; //CLON DE MENTIRA

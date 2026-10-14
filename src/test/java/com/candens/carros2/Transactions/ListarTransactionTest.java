@@ -8,7 +8,7 @@ import org.mockito.*;
 import static org.junit.Assert.assertEquals;
 
 
-public class ListarLibraryTransactionTest {
+public class ListarTransactionTest {
     @Mock
     private ListarLibrary listarLibraryTransaction; //CLON DE MENTIRA
     @InjectMocks

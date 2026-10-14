@@ -11,7 +11,7 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
 
-public class BuscarLibraryTransactionTest {
+public class BuscarTransactionTest {
 
     @Mock
     private BuscarLibrary buscarLibraryTransaction; //CLON DE MENTIRA

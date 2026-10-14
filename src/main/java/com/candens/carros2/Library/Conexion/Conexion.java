@@ -23,10 +23,7 @@ public class Conexion {
         } catch (SQLException e) {
 
         }
-
-    }
-
-
+   }
     public static Conexion conectar() throws SQLException {
     if(instancia == null || instancia.getConnection().isClosed())
         instancia=new Conexion();
