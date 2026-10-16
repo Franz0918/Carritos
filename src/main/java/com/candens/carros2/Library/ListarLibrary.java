@@ -2,16 +2,19 @@ package com.candens.carros2.Library;
 
 import com.candens.carros2.Dto.CarroDto;
 import com.candens.carros2.Library.Conexion.Conexion;
+import com.candens.carros2.Library.Util.ConfigLoader;
 import org.springframework.stereotype.Service;
 import java.sql.*;
 import java.util.List;
 
 @Service // ESTO INDICA A SPRING Q ESTO TIENE LOGICA DE NEGOCIO
-public class ListarLibrary {
+public class ListarLibrary extends AbstractListarLibrary{
 
+    @Override
     public List<CarroDto> ejecutar() {
         // Sentencia SQL nativa para traer todas las filas ordenadas por ID
-        String sql = "SELECT id, marca, numero_ruedas, tipo_transmision FROM carros ORDER BY id ASC";
+        //String sql = "SELECT id, marca, numero_ruedas, tipo_transmision FROM carros ORDER BY id ASC";
+        String sql = ConfigLoader.getProperty("consulta.listar");
         List<CarroDto> listaCarros = new java.util.ArrayList<>();
 
         // aaalll Bloque try-with-resources que maneja y cierra la conexión automáticamente

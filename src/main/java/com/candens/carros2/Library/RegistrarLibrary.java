@@ -2,17 +2,19 @@ package com.candens.carros2.Library;
 
 import com.candens.carros2.Dto.CarroDto;
 import com.candens.carros2.Library.Conexion.Conexion;
+import com.candens.carros2.Library.Util.ConfigLoader;
 import org.springframework.stereotype.Service;
 import java.sql.*;
 
 @Service // ESTO INDICA A SPRING Q ESTO TIENE LOGICA DE NEGOCIO
-public class RegistrarLibrary {
+public class RegistrarLibrary extends AbstractRegistrarLibrary{
 
 
     //AQUI EMPIEZA  A TRABAJAR BRUNO
-
+@Override
     public CarroDto ejecutar(CarroDto dto){//ACA SE PIDE EL ARIBUTO CREADO EN EL CONTROLADOR dto TIPO CarroDto
-        String sql = "INSERT INTO carros (marca, numero_ruedas, tipo_transmision) VALUES (?, ?, ?)";//QUERY/CONSULTA
+        //String sql = "INSERT INTO carros (marca, numero_ruedas, tipo_transmision) VALUES (?, ?, ?)";//QUERY/CONSULTA
+        String sql = ConfigLoader.getProperty("consulta.registrar");
         Integer idGenerado = null;
 
         // aaalll Bloque try-with-resources que maneja y cierra la conexión automáticamente
