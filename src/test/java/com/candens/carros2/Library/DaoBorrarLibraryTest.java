@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
-class BorrarLibraryTest {
+class DaoBorrarLibraryTest {
     @Test
     public void deletieLibreria() throws SQLException {
         Conexion mockStaticOut = mock(Conexion.class, RETURNS_DEEP_STUBS); //
@@ -24,8 +24,8 @@ class BorrarLibraryTest {
             conexionEstatica.when(Conexion::conectar).thenReturn(mockStaticOut); // PREIMER CLON USADO
 
             //Ejecutamos  clase original sin haberle cambiado nada
-            BorrarLibrary library = new BorrarLibrary(); // CREAMOS LA INSTANCIA REAL
-            library.ejecutar(7);
+            DaoBorrarLibrary bol = new DaoBorrarLibrary(); // CREAMOS LA INSTANCIA REAL
+            bol.daoBorrar("sss",77);
 
             //Verificamos que este lindo
             verify(mockStaticOut.getConnection().prepareStatement(anyString()), times(1)).executeUpdate();

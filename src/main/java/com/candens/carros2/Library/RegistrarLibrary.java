@@ -3,10 +3,10 @@ package com.candens.carros2.Library;
 import com.candens.carros2.Dto.CarroDto;
 import com.candens.carros2.Library.Conexion.Conexion;
 import com.candens.carros2.Library.Util.ConfigLoader;
-import org.springframework.stereotype.Service;
-import java.sql.*;
+import com.candens.carros2.Library.Util.ConfigLoaderSql;
+import org.springframework.stereotype.Component;
 
-@Service // ESTO INDICA A SPRING Q ESTO TIENE LOGICA DE NEGOCIO
+@Component // ESTO INDICA A SPRING Q ESTO TIENE LOGICA DE NEGOCIO
 public class RegistrarLibrary extends AbstractRegistrarLibrary{
 
 
@@ -14,9 +14,8 @@ public class RegistrarLibrary extends AbstractRegistrarLibrary{
 @Override
     public CarroDto ejecutar(CarroDto dto){//ACA SE PIDE EL ARIBUTO CREADO EN EL CONTROLADOR dto TIPO CarroDto
         //String sql = "INSERT INTO carros (marca, numero_ruedas, tipo_transmision) VALUES (?, ?, ?)";//QUERY/CONSULTA
-        String sql = ConfigLoader.getProperty("consulta.registrar");
-        Integer idGenerado = null;
-
+        String sql = ConfigLoaderSql.getProperty("consulta.registrar");
+/*-----------------------------------------------
         // aaalll Bloque try-with-resources que maneja y cierra la conexión automáticamente
         try (PreparedStatement ps = Conexion.conectar().getConnection().prepareStatement(sql)) {
 
@@ -42,5 +41,7 @@ public class RegistrarLibrary extends AbstractRegistrarLibrary{
         }
         // Retornamos el DTO final con su ID real de base de datos
         return new CarroDto(idGenerado, dto.getMarca(), dto.getNumero_ruedas(), dto.getTipo_transmision());
+*/
+        return daoRegistrarLibrary.daoRegistrar(sql, dto);
     }
 }

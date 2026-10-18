@@ -9,12 +9,16 @@ import java.sql.*;
 @Service // ESTO INDICA A SPRING Q ESTO TIENE LOGICA DE NEGOCIO
 public class ActualizarLibrary extends AbstractActualizarLibrary{
 
-@Override
+
+    public ActualizarLibrary() throws SQLException {
+    }
+
+    @Override
     public CarroDto ejecutar(Integer id, CarroDto dto){//ACA SE PIDE EL ARIBUTO CREADO EN EL CONTROLADOR dto TIPO CarroDto
         String sql = ConfigLoader.getProperty("consulta.actualizar");
 
-        // aaalll Bloque try-with-resources que maneja y cierra la conexión automáticamente
-        try (PreparedStatement ps = Conexion.conectar().getConnection().prepareStatement(sql)) {
+
+       try {
 
             // Pasamos los parámetros del DTO al Query de SQL
             ps.setString(1, dto.getMarca());
@@ -30,7 +34,7 @@ public class ActualizarLibrary extends AbstractActualizarLibrary{
             }
 
         } catch (Exception e) {
-            throw new RuntimeException("PROBLEMITA AL INSERTAR TU CARRITO: " + e.getMessage());
+            throw new RuntimeException("PROBLEMITA AL ACTUALIZAR TU CARRITO: " + e.getMessage());
         }
         // Retornamos el DTO final con su ID real de base de datos
         return new CarroDto(id, dto.getMarca(), dto.getNumero_ruedas(), dto.getTipo_transmision());
