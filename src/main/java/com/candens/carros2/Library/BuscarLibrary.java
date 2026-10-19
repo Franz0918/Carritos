@@ -3,7 +3,6 @@ package com.candens.carros2.Library;
 import com.candens.carros2.Dto.CarroDto;
 import com.candens.carros2.Library.Util.ConfigLoaderSql;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 public class BuscarLibrary extends AbstractBuscarLibrary {

@@ -1,24 +1,18 @@
 package com.candens.carros2.Library;
 
 import com.candens.carros2.Dto.CarroDto;
-import com.candens.carros2.Library.Conexion.Conexion;
-import com.candens.carros2.Library.Util.ConfigLoader;
-import org.springframework.stereotype.Service;
-import java.sql.*;
+import com.candens.carros2.Library.Util.ConfigLoaderSql;
+import org.springframework.stereotype.Component;
 
-@Service // ESTO INDICA A SPRING Q ESTO TIENE LOGICA DE NEGOCIO
+@Component
 public class ActualizarLibrary extends AbstractActualizarLibrary{
-
-
-    public ActualizarLibrary() throws SQLException {
-    }
 
     @Override
     public CarroDto ejecutar(Integer id, CarroDto dto){//ACA SE PIDE EL ARIBUTO CREADO EN EL CONTROLADOR dto TIPO CarroDto
-        String sql = ConfigLoader.getProperty("consulta.actualizar");
+        String sql = ConfigLoaderSql.getProperty("consulta.actualizar");
 
-
-       try {
+/*-----------------------------------------------------------------
+       try( PreparedStatement ps = Conexion.conectar().getConnection().prepareStatement(sql))  {
 
             // Pasamos los parámetros del DTO al Query de SQL
             ps.setString(1, dto.getMarca());
@@ -38,7 +32,8 @@ public class ActualizarLibrary extends AbstractActualizarLibrary{
         }
         // Retornamos el DTO final con su ID real de base de datos
         return new CarroDto(id, dto.getMarca(), dto.getNumero_ruedas(), dto.getTipo_transmision());
-
+//-----------------------------------------------------------------*/
+        return daoActualizarLibrary.daoActualizar(sql, id, dto);
     }
 
 }

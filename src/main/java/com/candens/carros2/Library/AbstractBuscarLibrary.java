@@ -8,6 +8,7 @@ public abstract class AbstractBuscarLibrary implements InterfaceBuscarLibrary{
     DaoBuscarLibrary daoBuscarLibrary;
 
     public void setDbl(DaoBuscarLibrary dbl) {
+
         this.daoBuscarLibrary = dbl;
     }
 }

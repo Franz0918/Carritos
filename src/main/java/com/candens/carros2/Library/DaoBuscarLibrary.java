@@ -13,7 +13,8 @@ public class DaoBuscarLibrary {
     public CarroDto daoBuscar(String sql,Integer id) {
 
         try (PreparedStatement ps = Conexion.conectar().getConnection().prepareStatement(sql)) {
-            ps.setLong(1, id);
+            //ps.setLong(1, id);
+            ps.setInt(1, id);
 
             try (ResultSet rs = ps.executeQuery()) {
                 // rs=mockResultSet

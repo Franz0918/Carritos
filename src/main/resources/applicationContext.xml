@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://springframework.org"
+       xmlns:xsi="http://w3.org"
+       xsi:schemaLocation="http://springframework.org
+           http://springframework.org/spring-beans.xsd">
+
+    <!-- =================================================================== -->
+    <!-- 1. FLUJO: REGISTRAR (POST)                                          -->
+    <!-- =================================================================== -->
+    <bean id="daoRegistrarLibrary" class="com.candens.carros2.Library.DaoRegistrarLibrary" />
+
+    <bean id="registrarLibrary" class="com.candens.carros2.Library.RegistrarLibrary">
+        <property name="daoRegistrarLibrary" ref="daoRegistrarLibrary" />
+    </bean>
+
+    <bean id="registrarTransaction" class="com.candens.carros2.Transaction.RegistrarTransaction">
+        <property name="registrarTransaction" ref="registrarLibrary" />
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- 2. FLUJO: LISTAR (GET ALL)                                          -->
+    <!-- =================================================================== -->
+    <bean id="daoListarLibrary" class="com.candens.carros2.Library.DaoListarLibrary" />
+
+    <bean id="listarLibrary" class="com.candens.carros2.Library.ListarLibrary">
+        <property name="daoListarLibrary" ref="daoListarLibrary" />
+    </bean>
+
+    <bean id="listarTransaction" class="com.candens.carros2.Transaction.ListarTransaction">
+        <property name="listarTransaction" ref="listarLibrary" />
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- 3. FLUJO: BUSCAR POR ID (GET BY ID)                                 -->
+    <!-- =================================================================== -->
+    <bean id="daoBuscarLibrary" class="com.candens.carros2.Library.DaoBuscarLibrary" />
+
+    <bean id="buscarLibrary" class="com.candens.carros2.Library.BuscarLibrary">
+        <property name="dbl" ref="daoBuscarLibrary" />
+    </bean>
+
+    <bean id="buscarTransaction" class="com.candens.carros2.Transaction.BuscarTransaction">
+        <property name="buscarTransaction" ref="buscarLibrary" />
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- 4. FLUJO: ACTUALIZAR (PUT)                                          -->
+    <!-- =================================================================== -->
+    <bean id="daoActualizarLibrary" class="com.candens.carros2.Library.DaoActualizarLibrary" />
+
+    <bean id="actualizarLibrary" class="com.candens.carros2.Library.ActualizarLibrary">
+        <property name="daoActualizarLibrary" ref="daoActualizarLibrary" />
+    </bean>
+
+    <bean id="actualizarTransaction" class="com.candens.carros2.Transaction.ActualizarTransaction">
+        <property name="actualizarTransaction" ref="actualizarLibrary" />
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- 5. FLUJO: BORRAR (DELETE)                                           -->
+    <!-- =================================================================== -->
+    <bean id="daoBorrarLibrary" class="com.candens.carros2.Library.DaoBorrarLibrary" />
+
+    <bean id="borrarLibrary" class="com.candens.carros2.Library.BorrarLibrary">
+        <property name="daoBorrarLibrary" ref="daoBorrarLibrary" />
+    </bean>
+
+    <bean id="borrarTransaction" class="com.candens.carros2.Transaction.BorrarTransaction">
+        <property name="borrarTransaction" ref="borrarLibrary" />
+    </bean>
+
+</beans>

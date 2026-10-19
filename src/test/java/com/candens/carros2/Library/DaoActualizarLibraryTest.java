@@ -4,19 +4,17 @@ import com.candens.carros2.Dto.CarroDto;
 import com.candens.carros2.Library.Conexion.Conexion;
 
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.mockito.MockedStatic;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
-public class ActualizarLibraryTest {
+public class DaoActualizarLibraryTest {
 
     @Test
     public void puttieLibreria() throws SQLException {
@@ -33,10 +31,10 @@ public class ActualizarLibraryTest {
             conexionEstatica.when(Conexion::conectar).thenReturn(mockStaticOut); // PREIMER CLON
 
             //Ejecutamos  clase original sin haberle cambiado nada
-            ActualizarLibrary library = new ActualizarLibrary(); // CREAMOS LA INSTANCIA REAL
+            DaoActualizarLibrary al = new DaoActualizarLibrary(); // CREAMOS LA INSTANCIA REAL
             CarroDto dtoPrueba = new CarroDto(70, "Sunray", 4, "Mecánica");
 
-            CarroDto resultado = library.ejecutar(70, dtoPrueba);
+            CarroDto resultado = al.daoActualizar("asasa",70, dtoPrueba);
 
             //Verificamos que este lindo
             assertEquals(Integer.valueOf(70), resultado.getId());

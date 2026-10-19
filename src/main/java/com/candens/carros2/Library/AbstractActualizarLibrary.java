@@ -1,18 +1,11 @@
 package com.candens.carros2.Library;
 
-import com.candens.carros2.Library.Conexion.Conexion;
-
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AbstractActualizarLibrary implements InterfaceActualizarLibrary{
-    PreparedStatement ps = Conexion.conectar().getConnection().prepareStatement("sql");
 
-    protected AbstractActualizarLibrary() throws SQLException {
-    }
+   @Autowired
+   DaoActualizarLibrary daoActualizarLibrary;
 
-
-    public void setPs(PreparedStatement ps) {
-        this.ps = ps;
-    }
+   public void setDal(DaoActualizarLibrary dal) {this.daoActualizarLibrary = dal;}
 }

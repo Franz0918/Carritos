@@ -1,6 +1,6 @@
 package com.candens.carros2;
 
-
+import org.springframework.context.annotation.ImportResource; // ES PARA AGREGAR EL XML
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
