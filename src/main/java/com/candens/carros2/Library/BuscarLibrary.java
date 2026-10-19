@@ -4,7 +4,7 @@ import com.candens.carros2.Dto.CarroDto;
 import com.candens.carros2.Library.Util.ConfigLoaderSql;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class BuscarLibrary extends AbstractBuscarLibrary {
 
 

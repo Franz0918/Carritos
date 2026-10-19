@@ -6,7 +6,7 @@ import com.candens.carros2.Library.Util.ConfigLoader;
 import com.candens.carros2.Library.Util.ConfigLoaderSql;
 import org.springframework.stereotype.Component;
 
-@Component // ESTO INDICA A SPRING Q ESTO TIENE LOGICA DE NEGOCIO
+//@Component // ESTO INDICA A SPRING Q ESTO TIENE LOGICA DE NEGOCIO
 public class RegistrarLibrary extends AbstractRegistrarLibrary{
 
 

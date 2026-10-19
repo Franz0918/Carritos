@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-@Repository
+//@Repository
 public class DaoRegistrarLibrary {
     public CarroDto daoRegistrar(String sql, CarroDto dto) {
 

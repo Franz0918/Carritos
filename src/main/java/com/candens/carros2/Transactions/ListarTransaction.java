@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("ListarTransaction")
+//@Service("ListarTransaction")
 public class ListarTransaction extends AbstractListarTransaction{
 
 

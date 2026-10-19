@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
-@Repository
+//@Repository
 public class DaoListarLibrary {
 
     public List<CarroDto> daoListar(String sql) {

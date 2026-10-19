@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.PreparedStatement;
 
-@Component
+//@Component
 public class BorrarLibrary extends AbstractBorrarLibrary {
 
     @Override

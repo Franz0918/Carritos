@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 
-@Repository
+//@Repository
 public class DaoBorrarLibrary {
     public void daoBorrar(String sql, Integer id) {
 

@@ -4,7 +4,7 @@ import com.candens.carros2.Library.ListarLibrary;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class AbstractListarTransaction {
-    @Autowired
+    //@Autowired
     protected ListarLibrary listarLibraryTransaction; // = new Listar();
 
     public void setListarTransaction(ListarLibrary listarLibraryTransaction) {

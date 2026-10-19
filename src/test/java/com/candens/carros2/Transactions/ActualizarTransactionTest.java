@@ -30,7 +30,6 @@ public class ActualizarTransactionTest {
 
         System.out.println("ID devuelto: " + resultado.getId());
         System.out.println("Marca devuelta: " + resultado.getMarca());
-
         assertEquals(Integer.valueOf(3), resultado.getId());
     }
 }

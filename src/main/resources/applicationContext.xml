@@ -1,72 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://springframework.org"
-       xmlns:xsi="http://w3.org"
-       xsi:schemaLocation="http://springframework.org
-           http://springframework.org/spring-beans.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- DAOS -->
 
     <!-- =================================================================== -->
-    <!-- 1. FLUJO: REGISTRAR (POST)                                          -->
-    <!-- =================================================================== -->
-    <bean id="daoRegistrarLibrary" class="com.candens.carros2.Library.DaoRegistrarLibrary" />
+    <bean id="daoRegistrarLibrary" class="com.candens.carros2.Library.DaoRegistrarLibrary"/>
+    <bean id="daoListarLibrary" class="com.candens.carros2.Library.DaoListarLibrary"/>
+    <bean id="daoBuscarLibrary" class="com.candens.carros2.Library.DaoBuscarLibrary"/>
+    <bean id="daoActualizarLibrary" class="com.candens.carros2.Library.DaoActualizarLibrary"/>
+    <bean id="daoBorrarLibrary" class="com.candens.carros2.Library.DaoBorrarLibrary"/>
 
+        <!-- LIBRARIES                   -->
+
+    <!-- REGISTRAR: setter setDrl -->
     <bean id="registrarLibrary" class="com.candens.carros2.Library.RegistrarLibrary">
-        <property name="daoRegistrarLibrary" ref="daoRegistrarLibrary" />
+        <property name="drl" ref="daoRegistrarLibrary"/>
     </bean>
 
-    <bean id="registrarTransaction" class="com.candens.carros2.Transaction.RegistrarTransaction">
-        <property name="registrarTransaction" ref="registrarLibrary" />
-    </bean>
-
-    <!-- =================================================================== -->
-    <!-- 2. FLUJO: LISTAR (GET ALL)                                          -->
-    <!-- =================================================================== -->
-    <bean id="daoListarLibrary" class="com.candens.carros2.Library.DaoListarLibrary" />
-
+    <!-- LISTAR: setter setDll -->
     <bean id="listarLibrary" class="com.candens.carros2.Library.ListarLibrary">
-        <property name="daoListarLibrary" ref="daoListarLibrary" />
+        <property name="dll" ref="daoListarLibrary"/>
     </bean>
 
-    <bean id="listarTransaction" class="com.candens.carros2.Transaction.ListarTransaction">
-        <property name="listarTransaction" ref="listarLibrary" />
-    </bean>
-
-    <!-- =================================================================== -->
-    <!-- 3. FLUJO: BUSCAR POR ID (GET BY ID)                                 -->
-    <!-- =================================================================== -->
-    <bean id="daoBuscarLibrary" class="com.candens.carros2.Library.DaoBuscarLibrary" />
-
+    <!-- BUSCAR: setter setDbl -->
     <bean id="buscarLibrary" class="com.candens.carros2.Library.BuscarLibrary">
-        <property name="dbl" ref="daoBuscarLibrary" />
+        <property name="dbl" ref="daoBuscarLibrary"/>
     </bean>
 
-    <bean id="buscarTransaction" class="com.candens.carros2.Transaction.BuscarTransaction">
-        <property name="buscarTransaction" ref="buscarLibrary" />
-    </bean>
-
-    <!-- =================================================================== -->
-    <!-- 4. FLUJO: ACTUALIZAR (PUT)                                          -->
-    <!-- =================================================================== -->
-    <bean id="daoActualizarLibrary" class="com.candens.carros2.Library.DaoActualizarLibrary" />
-
+    <!-- ACTUALIZAR: setter setDal -->
     <bean id="actualizarLibrary" class="com.candens.carros2.Library.ActualizarLibrary">
-        <property name="daoActualizarLibrary" ref="daoActualizarLibrary" />
+        <property name="dal" ref="daoActualizarLibrary"/>
     </bean>
 
-    <bean id="actualizarTransaction" class="com.candens.carros2.Transaction.ActualizarTransaction">
-        <property name="actualizarTransaction" ref="actualizarLibrary" />
-    </bean>
-
-    <!-- =================================================================== -->
-    <!-- 5. FLUJO: BORRAR (DELETE)                                           -->
-    <!-- =================================================================== -->
-    <bean id="daoBorrarLibrary" class="com.candens.carros2.Library.DaoBorrarLibrary" />
-
+    <!-- BORRAR: setter setDbol -->
     <bean id="borrarLibrary" class="com.candens.carros2.Library.BorrarLibrary">
-        <property name="daoBorrarLibrary" ref="daoBorrarLibrary" />
+        <property name="daoBorrarLibrary" ref="daoBorrarLibrary"/>
     </bean>
 
-    <bean id="borrarTransaction" class="com.candens.carros2.Transaction.BorrarTransaction">
-        <property name="borrarTransaction" ref="borrarLibrary" />
+        <!--  TRANSACTIONS                   -->
+
+    <!-- REGISTRAR: setter setRegistrarLibraryTransaction -->
+    <bean id="registrarTransaction" class="com.candens.carros2.Transactions.RegistrarTransaction">
+        <property name="registrarLibraryTransaction" ref="registrarLibrary"/>
+    </bean>
+
+    <!-- LISTAR: setter setListarTransaction -->
+    <bean id="listarTransaction" class="com.candens.carros2.Transactions.ListarTransaction">
+        <property name="listarTransaction" ref="listarLibrary"/>
+    </bean>
+
+    <!-- BUSCAR: setter setBuscarTransaction -->
+    <bean id="buscarTransaction" class="com.candens.carros2.Transactions.BuscarTransaction">
+        <property name="buscarTransaction" ref="buscarLibrary"/>
+    </bean>
+
+    <!-- ACTUALIZAR: setter setActualizarTransaction -->
+    <bean id="actualizarTransaction" class="com.candens.carros2.Transactions.ActualizarTransaction">
+        <property name="actualizarTransaction" ref="actualizarLibrary"/>
+    </bean>
+
+    <!-- BORRAR: setter setBorrarLibraryTransaction -->
+    <bean id="borrarTransaction" class="com.candens.carros2.Transactions.BorrarTransaction">
+        <property name="borrarLibraryTransaction" ref="borrarLibrary"/>
     </bean>
 
 </beans>

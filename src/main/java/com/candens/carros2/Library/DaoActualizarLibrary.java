@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 
-@Repository
+//@Repository
 public class DaoActualizarLibrary {
 
     public CarroDto daoActualizar(String sql, Integer id, CarroDto dto) {

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-@Repository
+//@Repository
 public class DaoBuscarLibrary {
 
     public CarroDto daoBuscar(String sql,Integer id) {
