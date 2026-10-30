@@ -1,5 +1,6 @@
 package com.candens.carros2.Library;
 
+
 public class Suma {
 
      int c=3;
@@ -32,5 +33,14 @@ public class Suma {
     <artifactId>spring-boot-starter-webflux</artifactId>
 </dependency>
 
+-------PARA MOCKEAR --------
+
+var rs = MockResultSet.create(
+           new String[] { "name", "age" }, //columns
+           new Object[][] { // data
+             { "Alice", 20 },
+             { "Bob", 35 },
+             { "Charles", 50 }
+           });
 
  */

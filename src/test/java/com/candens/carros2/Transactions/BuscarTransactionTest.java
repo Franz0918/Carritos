@@ -24,13 +24,13 @@ public class BuscarTransactionTest {
     @Test
     public void gettietrans(){
 
-        CarroDto tito = new CarroDto(3, "Xianshin", 3, "automatica"); // SOLO CREO UN CARRODTO
+        CarroDto tito = new CarroDto(77, "Xianshin", 3, "automatica"); // SOLO CREO UN CARRODTO
         when(buscarLibraryTransaction.ejecutar(anyInt())).thenReturn(tito); // ACA LED IGO COMO HACER EL ENGAÑO
         CarroDto resultado = bt.ejecutarGet(3); //AQUI PRUEBO MI TRNSACTION
 
         System.out.println("ID devuelto: " + resultado.getId());
         System.out.println("Marca devuelta: " + resultado.getMarca());
 
-        assertEquals(Integer.valueOf(3), resultado.getId());
+        assertEquals(Integer.valueOf(77), resultado.getId());
     }
 }

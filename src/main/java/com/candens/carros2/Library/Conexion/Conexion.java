@@ -18,13 +18,13 @@ public class Conexion {
 
         try {
 
-            this.conexion = DriverManager.getConnection(url, user, password);
+            this.conexion = DriverManager.getConnection(url, user, password); // METODO STATICO GETCONNETION
 
         } catch (SQLException e) {
 
         }
    }
-    public static Conexion conectar() throws SQLException {
+    public static Conexion conectar() throws SQLException { // CON STATIC PUEDO USAR
     if(instancia == null || instancia.getConnection().isClosed())
         instancia=new Conexion();
         return instancia;
