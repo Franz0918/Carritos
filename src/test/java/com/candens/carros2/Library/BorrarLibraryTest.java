@@ -1,37 +1,32 @@
 package com.candens.carros2.Library;
 
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-import com.candens.carros2.Library.Conexion.Conexion;
-import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
-
-import java.sql.SQLException;
-
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-class BorrarLibraryTest {
-    @Test
-    public void deletieLibreria() throws SQLException {
-        Conexion mockStaticOut = mock(Conexion.class, RETURNS_DEEP_STUBS); //
-        //Programamos el comportamiento en cadena de la base de datos
-        when(mockStaticOut.getConnection().prepareStatement(anyString()).executeUpdate()).thenReturn(1);
+public class BorrarLibraryTest {
+    @Mock
+    private DaoBorrarLibrary daoBorrarMock;
 
+    @InjectMocks
+    private BorrarLibrary borrarLibrary;
 
-        // Congelamos el método estático Conexion.conectar()
-        try (MockedStatic<Conexion> conexionEstatica = mockStatic(Conexion.class)) { // APARTIR DE ACA SE ACTIVA EL INTERCEPTOR DE MEMORIA RAM SOBRE Conexion
-            // Le decimos: Cuando el código llame a Conexion.conectar(), devuelve nuestro clon
-            conexionEstatica.when(Conexion::conectar).thenReturn(mockStaticOut); // PREIMER CLON USADO
-
-            //Ejecutamos  clase original sin haberle cambiado nada
-            BorrarLibrary library = new BorrarLibrary(); // CREAMOS LA INSTANCIA REAL
-            library.ejecutar(7);
-
-            //Verificamos que este lindo
-            verify(mockStaticOut.getConnection().prepareStatement(anyString()), times(1)).executeUpdate();
-
-            System.out.println("¡SI LEES ESTO ES PORQ TODO ESTA OKIs");
-        } // A PARTIR DE ACA JAVA DESTRUYE EL INTERCEPTOR DE MEMORIA , SE DESARME DESVIOS ESTATICOS Y CONEXION RECUPERA  SU COMPORTAMIENTO NORMAL
+    @Before
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
     }
 
+    @Test
+    public void buscarLibPrueba() {
+
+        doNothing().when(daoBorrarMock).daoBorrar(anyString(),anyInt());
+        borrarLibrary.ejecutar(3);
+        verify(daoBorrarMock, times(1)).daoBorrar(anyString(), eq(3));
+        System.out.println("¡YA CASI PRO!");
+    }
 }

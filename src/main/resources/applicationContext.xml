@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- DAOS -->
+
+    <!-- =================================================================== -->
+    <bean id="daoRegistrarLibrary" class="com.candens.carros2.Library.DaoRegistrarLibrary"/>
+    <bean id="daoListarLibrary" class="com.candens.carros2.Library.DaoListarLibrary"/>
+    <bean id="daoBuscarLibrary" class="com.candens.carros2.Library.DaoBuscarLibrary"/>
+    <bean id="daoActualizarLibrary" class="com.candens.carros2.Library.DaoActualizarLibrary"/>
+    <bean id="daoBorrarLibrary" class="com.candens.carros2.Library.DaoBorrarLibrary"/>
+
+        <!-- LIBRARIES                   -->
+
+    <!-- REGISTRAR: setter setDrl -->
+    <bean id="registrarLibrary" class="com.candens.carros2.Library.RegistrarLibrary">
+        <property name="drl" ref="daoRegistrarLibrary"/>
+    </bean>
+
+    <!-- LISTAR: setter setDll -->
+    <bean id="listarLibrary" class="com.candens.carros2.Library.ListarLibrary">
+        <property name="dll" ref="daoListarLibrary"/>
+    </bean>
+
+    <!-- BUSCAR: setter setDbl -->
+    <bean id="buscarLibrary" class="com.candens.carros2.Library.BuscarLibrary">
+        <property name="dbl" ref="daoBuscarLibrary"/>
+    </bean>
+
+    <!-- ACTUALIZAR: setter setDal -->
+    <bean id="actualizarLibrary" class="com.candens.carros2.Library.ActualizarLibrary">
+        <property name="dal" ref="daoActualizarLibrary"/>
+    </bean>
+
+    <!-- BORRAR: setter setDbol -->
+    <bean id="borrarLibrary" class="com.candens.carros2.Library.BorrarLibrary">
+        <property name="daoBorrarLibrary" ref="daoBorrarLibrary"/>
+    </bean>
+
+        <!--  TRANSACTIONS                   -->
+
+    <!-- REGISTRAR: setter setRegistrarLibraryTransaction -->
+    <bean id="registrarTransaction" class="com.candens.carros2.Transactions.RegistrarTransaction">
+        <property name="registrarLibraryTransaction" ref="registrarLibrary"/>
+    </bean>
+
+    <!-- LISTAR: setter setListarTransaction -->
+    <bean id="listarTransaction" class="com.candens.carros2.Transactions.ListarTransaction">
+        <property name="listarTransaction" ref="listarLibrary"/>
+    </bean>
+
+    <!-- BUSCAR: setter setBuscarTransaction -->
+    <bean id="buscarTransaction" class="com.candens.carros2.Transactions.BuscarTransaction">
+        <property name="buscarTransaction" ref="buscarLibrary"/>
+    </bean>
+
+    <!-- ACTUALIZAR: setter setActualizarTransaction -->
+    <bean id="actualizarTransaction" class="com.candens.carros2.Transactions.ActualizarTransaction">
+        <property name="actualizarTransaction" ref="actualizarLibrary"/>
+    </bean>
+
+    <!-- BORRAR: setter setBorrarLibraryTransaction -->
+    <bean id="borrarTransaction" class="com.candens.carros2.Transactions.BorrarTransaction">
+        <property name="borrarLibraryTransaction" ref="borrarLibrary"/>
+    </bean>
+
+</beans>
