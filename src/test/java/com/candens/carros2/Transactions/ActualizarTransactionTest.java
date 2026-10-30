@@ -22,14 +22,24 @@ public class ActualizarTransactionTest {
     }
 
     @Test
-    public void puttietrans(){
+    public void executeTest_happyPath(){
 
         CarroDto tito = new CarroDto(77, "Xianshin", 3, "automatica"); // SOLO CREO UN CARRODTO
         when(actualizarLibraryTransaction.ejecutar(anyInt(), any(CarroDto.class))).thenReturn(tito); // ACA LED IGO COMO HACER EL ENGAÑO
-        CarroDto resultado = at.ejecutarPut(3,tito); //AQUI PRUEBO MI TRNSACTION
+        CarroDto resultado = at.ejecutarPut(3,tito); //AQUI PRUEBO MI TRNSACTION --- CREAR OTRO CARRODTO POR SEGURIDAD
 
         System.out.println("ID devuelto: " + resultado.getId());
         System.out.println("Marca devuelta: " + resultado.getMarca());
-        assertEquals(Integer.valueOf(3), resultado.getId());
+        assertEquals(Integer.valueOf(77), resultado.getId());
+    }
+    @Test
+    public void executeTest_nonHappyPath(){
+        CarroDto tito = new CarroDto(77, "Xianshin", 3, "automatica"); // SOLO CREO UN CARRODTO
+        when(actualizarLibraryTransaction.ejecutar(anyInt(), any(CarroDto.class))).thenReturn(tito); // ACA LED IGO COMO HACER EL ENGAÑO
+        CarroDto resultado = at.ejecutarPut(3,tito); //AQUI PRUEBO MI TRNSACTION --- CREAR OTRO CARRODTO POR SEGURIDAD
+
+        System.out.println("ID devuelto: " + resultado.getId());
+        System.out.println("Marca devuelta: " + resultado.getMarca());
+        assertEquals(Integer.valueOf(null), resultado);
     }
 }

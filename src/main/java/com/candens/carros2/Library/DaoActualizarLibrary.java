@@ -2,11 +2,10 @@ package com.candens.carros2.Library;
 
 import com.candens.carros2.Dto.CarroDto;
 import com.candens.carros2.Library.Conexion.Conexion;
-import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 
-//@Repository
+
 public class DaoActualizarLibrary {
 
     public CarroDto daoActualizar(String sql, Integer id, CarroDto dto) {

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class AbstractBuscarLibrary implements InterfaceBuscarLibrary{
 
 
-    DaoBuscarLibrary daoBuscarLibrary;
+    DaoBuscarLibrary daoBuscarLibrary; // APUNTA A NULL
 
     public void setDbl(DaoBuscarLibrary dbl) {
 

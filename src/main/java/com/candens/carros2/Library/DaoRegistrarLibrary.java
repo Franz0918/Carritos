@@ -2,13 +2,11 @@ package com.candens.carros2.Library;
 
 import com.candens.carros2.Dto.CarroDto;
 import com.candens.carros2.Library.Conexion.Conexion;
-import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-//@Repository
 public class DaoRegistrarLibrary {
     public CarroDto daoRegistrar(String sql, CarroDto dto) {
 

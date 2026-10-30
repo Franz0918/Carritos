@@ -1,9 +1,6 @@
 package com.candens.carros2.Library;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public abstract class AbstractActualizarLibrary implements InterfaceActualizarLibrary{
-
 
    DaoActualizarLibrary daoActualizarLibrary;
 

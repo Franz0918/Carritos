@@ -2,13 +2,10 @@ package com.candens.carros2.Library;
 
 import com.candens.carros2.Dto.CarroDto;
 import com.candens.carros2.Library.Conexion.Conexion;
-import org.springframework.stereotype.Repository;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
-//@Repository
 public class DaoListarLibrary {
 
     public List<CarroDto> daoListar(String sql) {
