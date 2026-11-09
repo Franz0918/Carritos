@@ -1,0 +1,33 @@
+name: Java CI con Maven
+
+on:
+  push:
+    branches: [ "main", "master" ] # Se activa cuando haces un git push a main o master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # GitHub encenderá una máquina virtual con Linux
+
+    steps:
+      # A. Descarga tu código a la máquina virtual
+      - name: Descargar codigo fuente
+        uses: actions/checkout@v4
+
+      # B. Instala Java en la máquina virtual
+      - name: Configurar Java JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17' # Cambia este número si tu proyecto usa Java 11 o 21
+          distribution: 'temurin'
+          cache: maven
+
+      # C. Ejecuta el empaquetado en la nube (¡Igual que hiciste en tu consola!)
+      - name: Compilar y Empaquetar con Maven
+        run: mvn -B clean package
+
+      # D. Guarda el archivo JAR final en la web de GitHub
+      - name: Guardar el archivo JAR como Artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: microservicio-carros-ejecutable
+          path: target/carros-0.2.0.jar # Ruta exacta al archivo que vimos en tu carpeta target
