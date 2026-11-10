@@ -2,7 +2,7 @@ name: Java CI con Maven
 
 on:
   push:
-    branches: [ "main" ] # Se activa al hacer push a la rama main que usas
+    branches: [ "main" , "bugfix_0.8.0"] # Se activa al hacer push a la rama main que usas
 
 jobs:
   build:
@@ -21,9 +21,9 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # 3. GitHub ejecutará la compilación Y LAS PRUEBAS UNITARIAS
+    # 3. Compila y ejecuta pruebas aislando configuraciones externas
     - name: Compilar y Probar con Maven
-      run: mvn -B clean package
+      run: mvn -B clean package -Dspring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
     # 4. Guarda tu archivo ejecutable para descargarlo en la web
     - name: Guardar el archivo JAR como Artefacto
