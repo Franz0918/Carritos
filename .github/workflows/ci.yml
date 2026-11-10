@@ -2,7 +2,7 @@ name: Java CI con Maven
 
 on:
   push:
-    branches: [ "main", "master" ] # Se activa cuando haces un git push a main o master
+    branches: [ "main", "master", "bugfix_0.8.0", "bugfix_0.9.0" ] # Se activa cuando haces un git push a main o master
 
 jobs:
   build:
