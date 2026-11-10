@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @RestController // INDICA Q ES UN CONTROLADOR, AQUI SE DEFINE PARA MODO ESCUCHA(SPRIG CON RESTCONTROLLER SE COMBINAN POR SER PARTEL API REST, LOVUELVE UN API)
 @RequestMapping("/api/carros") //LA DIRECCION DEL URI
-
 @CrossOrigin(origins = "*") // ESTO SE AGREGA ESTA LÍNEA AQUÍ
 
 public class CarroController {

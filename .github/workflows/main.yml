@@ -2,7 +2,7 @@ name: Java CI con Maven
 
 on:
   push:
-    branches: [ "main" ] # Se activa al hacer push a la rama main que usas
+    branches: [ "main" , "bugfix_0.8.0"] # Se activa al hacer push a la rama main que usas
 
 jobs:
   build:
