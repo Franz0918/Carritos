@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class Carros2ApplicationTests {
 
-	@Disabled //
+	@Disabled //ES PARA DESACTIVAR LAS SOLICITUDES A LA BASE DE DATOS CUANDO SE HACEN PRUEBAS UNITARIAS EN GIT
 	@Test
 	void contextLoads() {
 	}
