@@ -21,9 +21,9 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # 3. GitHub ejecutará la compilación Y LAS PRUEBAS UNITARIAS
+    # 3. Compila y ejecuta pruebas aislando configuraciones externas
     - name: Compilar y Probar con Maven
-      run: mvn -B clean package
+      run: mvn -B clean package -Dspring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
     # 4. Guarda tu archivo ejecutable para descargarlo en la web
     - name: Guardar el archivo JAR como Artefacto
