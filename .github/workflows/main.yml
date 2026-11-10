@@ -21,9 +21,9 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # 3. Empaqueta el archivo ignorando temporalmente test si están vacíos o fallando en la nube
-    - name: Compilar y Empaquetar con Maven
-      run: mvn -B clean package -DskipTests
+    # 3. GitHub ejecutará la compilación Y LAS PRUEBAS UNITARIAS
+    - name: Compilar y Probar con Maven
+      run: mvn -B clean package
 
     # 4. Guarda tu archivo ejecutable para descargarlo en la web
     - name: Guardar el archivo JAR como Artefacto
