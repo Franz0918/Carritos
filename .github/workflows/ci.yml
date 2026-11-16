@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest # GitHub encenderá una máquina virtual con Linux,asdasdasdasdas
+    runs-on: ubuntu-latest # GitHub encenderá una máquina virtual con Linux
 
     steps:
       # A. Descarga tu código a la máquina virtual
